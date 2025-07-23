@@ -12,7 +12,9 @@ export default function App() {
     // Mà phải Swap trong 1 element cha
     // như <div> <></> (react fragment)
     <>
-      <ClickCount />
+      <ClickCount /> 
+      <ClickCount /> 
+
       <YourButton />
       <CheckLogin />
       <AboutPage />
