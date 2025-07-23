@@ -4,6 +4,7 @@ import CheckLogin from "./components/condition/CheckLogin";
 import YourButton from "./components/event/YourButton";
 import ShoppingList from "./components/list/ShoppingList";
 import AboutPage from "./components/page/AboutPage";
+import ClickCount from "./components/storage/ClickCount";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
     // Mà phải Swap trong 1 element cha
     // như <div> <></> (react fragment)
     <>
+      <ClickCount />
       <YourButton />
       <CheckLogin />
       <AboutPage />
