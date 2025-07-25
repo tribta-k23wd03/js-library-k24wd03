@@ -1,11 +1,11 @@
-import Square from "./components/board-game/Square";
 import "./App.css";
-import Board from "./components/board-game/Board";
+
+import Game from "./components/board-game/Game";
 
 export default function App() {
   return (
     <div>
-      <Board />
+      <Game />
     </div>
   );
 }
