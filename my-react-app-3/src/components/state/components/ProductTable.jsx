@@ -1,12 +1,19 @@
 import ProductCategoryRow from "./ProductCategoryRow";
 import ProductRow from "./ProductRow";
 
-function ProductTable({ products }) {
+function ProductTable({ products, inStockOnly, filterText }) {
   const rows = [];
 
   let lastCategory = null;
 
   products.forEach((p) => {
+    if (p.name.toLowerCase().indexOf(filterText.toLowerCase()) === -1) {
+      return;
+    }
+    if (inStockOnly && !p.stocked) {
+      return;
+    }
+
     if (p.category !== lastCategory) {
       rows.push(<ProductCategoryRow category={p.category} key={p.category} />);
     }
