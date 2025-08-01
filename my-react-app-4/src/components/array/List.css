@@ -1,0 +1,24 @@
+img {
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin-right: 16px;
+  border-radius: 50px;
+  object-fit: cover;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 24px;
+  overflow: auto;
+}
+
+.prof {
+  text-transform: capitalize;
+  font-style: italic;
+}
