@@ -1,4 +1,5 @@
-import List from "./components/array/List";
+import { List } from "./components/array/RemoveItem/List";
+
 
 function App() {
   return (
