@@ -1,10 +1,9 @@
-import { List } from "./components/array/RemoveItem/List";
-
+import Tasks from "./components/useReduce/Tasks";
 
 function App() {
   return (
     <>
-      <List />
+      <Tasks />
     </>
   );
 }
