@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useReducer } from "react";
 import AddTask from "./child-components/AddTask";
 import TaskList from "./child-components/TaskList";
+import tasksReduce from "./useReduce";
 
 let nextId = 5;
 const initialTasks = [
@@ -12,7 +13,8 @@ const initialTasks = [
 ];
 
 function Tasks() {
-  const [tasks, setTasks] = useState(initialTasks);
+  //   const [tasks, setTasks] = useState(initialTasks);
+  const [tasks, dispatch] = useReducer(tasksReduce, initialTasks);
 
   function handleAddTask(text) {
     dispatch({
