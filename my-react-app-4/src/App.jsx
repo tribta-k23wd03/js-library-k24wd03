@@ -1,9 +1,9 @@
-import Tasks from "./components/useReduce/Tasks";
+import Timer from "./components/useRef/timer/Timer";
 
 function App() {
   return (
     <>
-      <Tasks />
+      <Timer />
     </>
   );
 }
