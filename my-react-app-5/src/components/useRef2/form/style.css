@@ -1,0 +1,27 @@
+body {
+  margin: 20px;
+}
+
+nav {
+  text-align: center;
+}
+
+button {
+  margin: 5px;
+}
+
+ul,
+li {
+  list-style: none;
+  white-space: nowrap;
+}
+
+li {
+  display: inline;
+  padding: 5px;
+}
+
+div {
+  width: 100%;
+  overflow: hidden;
+}
