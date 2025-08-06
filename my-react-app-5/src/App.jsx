@@ -1,9 +1,9 @@
 import "./App.css";
-import MyForm from "./components/useRef2/form2/MyForm";
+import Index from "./components/useRef2/mini-test/Index";
 const App = () => {
   return (
     <div>
-      <MyForm />
+      <Index />
     </div>
   );
 };
