@@ -4,8 +4,10 @@ import "./style.css";
 
 function MyVideoApp() {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [text, setText] = useState("");
   return (
     <div>
+      <input value={text} onChange={(e) => setText(e.target.value)} />
       <button onClick={() => setIsPlaying(!isPlaying)}>
         {isPlaying ? "Pause" : "Play"}
       </button>

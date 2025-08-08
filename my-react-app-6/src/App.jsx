@@ -1,9 +1,9 @@
-import MyVideoApp from "./components/video/MyVideoApp";
+import Quote from "./components/quotes/Quote";
 
 function App() {
   return (
     <div>
-      <MyVideoApp />
+      <Quote />
     </div>
   );
 }
