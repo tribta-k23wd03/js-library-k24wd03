@@ -1,9 +1,9 @@
-import Quote from "./components/quotes/Quote";
+import Timer from "./components/cleanUp/Timer";
 
 function App() {
   return (
     <div>
-      <Quote />
+      <Timer />
     </div>
   );
 }
