@@ -6,10 +6,8 @@ const router = express.Router();
 const streamifier = require("streamifier");
 const { cloudinary } = require("../config/cloudinary");
 
-/** 1️⃣  Sử dụng memoryStorage để nhận Buffer thay vì ghi tệp ra đĩa */
 const upload = multer({ storage: multer.memoryStorage() });
 
-/** 2️⃣  Hàm helper: upload Buffer lên Cloudinary bằng upload_stream */
 function uploadBufferToCloudinary(buffer, folder = "image-review-app") {
   return new Promise((resolve, reject) => {
     const stream = cloudinary.uploader.upload_stream(
@@ -23,7 +21,6 @@ function uploadBufferToCloudinary(buffer, folder = "image-review-app") {
   });
 }
 
-/** 3️⃣  Route POST /api/upload */
 router.post("/", upload.single("image"), async (req, res) => {
   try {
     // không có file?
@@ -33,12 +30,8 @@ router.post("/", upload.single("image"), async (req, res) => {
         .json({ success: false, error: "No file uploaded" });
     }
 
-    // 3.1 Upload Buffer -> Cloudinary
     const result = await uploadBufferToCloudinary(req.file.buffer);
 
-    /* 3.2 Lưu thông tin vào MongoDB
-       Tuỳ schema của bạn, thêm / bớt trường cho phù hợp.
-       Ví dụ: public_id, url (secure_url), originalname… */
     const image = new Image({
       originalname: req.file.originalname,
       public_id: result.public_id,
@@ -47,7 +40,6 @@ router.post("/", upload.single("image"), async (req, res) => {
       height: result.height,
       format: result.format,
       bytes: result.bytes,
-      // Nếu muốn kèm thêm phiên bản nhỏ: result.eager[0].secure_url …
     });
 
     await image.save();
@@ -55,7 +47,7 @@ router.post("/", upload.single("image"), async (req, res) => {
     return res.json({
       success: true,
       image,
-      url: result.secure_url, // Frontend dùng trực tiếp URL này
+      url: result.secure_url,
     });
   } catch (err) {
     console.error(err);
